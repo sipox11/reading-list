@@ -1,4 +1,3 @@
-==README.mv
 ## Reading list app
 
 RESTful app using AJAX to manage your book reading list.
