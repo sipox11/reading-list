@@ -26,7 +26,6 @@
 
   <hr>
 
-
   <div class='col-sm-12 book-form'>
     <p>
       <%= form_for(Book.new, remote: true,
@@ -56,7 +55,7 @@
           <%= f.text_field :author, class: 'form-control', placeholder: 'Author' %>
         </div>
         <div class='form-group'>
-          <%= f.text_field :description, class: 'form-control', placeholder: 'Description' %>
+          <%= f.text_area :description, class: 'form-control', placeholder: 'Description' %>
         </div>
         <div class='form-group'>
           <%= f.text_field :amazon_id, class: 'form-control', placeholder: 'Amazon ID' %>
@@ -77,6 +76,7 @@
       </div>
       <% end %>
     </p>
+    <hr style="clear: both;">
   </div>
 
 
