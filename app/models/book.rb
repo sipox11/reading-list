@@ -4,7 +4,9 @@ class Book < ActiveRecord::Base
   
   scope :finished, -> { where.not(finished_on: nil) }
   scope :recent, -> { where('finished_on > ?', 1.year.ago) }
-  scope :search, ->(keyword) { where('keywords LIKE ?', "%#{keyword.downcase}%")}
+  scope :search, ->(keyword) { where('keywords LIKE ?', "%#{keyword.downcase}%") if keyword.present? }
+  scope :filter_by, ->(genre_name) { 
+          joins(:genres).where('genres.name = ?', genre_name) if genre_name.present?} 
   
   before_save :set_keywords
   
